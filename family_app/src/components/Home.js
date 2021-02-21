@@ -16,8 +16,9 @@ const Home = () =>{
     
     return(
       <div>
-        <h2>Wall</h2>
         <Links/>
+        <h2 style = {{backgroundColor:"black",
+      color:"white"}}>Wall</h2>
         <Posts/>
         <NewPost handleNew = {createNewPost}/>
       </div>

@@ -1,5 +1,6 @@
 import useField from "../hooks/useField"
-
+import { Button, Icon, Form } from "semantic-ui-react"
+import AnimatedButton from "./stylised/AnimatedButton"
 
 
 const NewPost = ({handleNew}) =>{
@@ -19,19 +20,30 @@ const NewPost = ({handleNew}) =>{
       handleNew(post)
     }
 
+    const resetFields = (event) =>{
+      event.preventDefault()
+      content.reset()
+      img.reset()
+    }
+
     return(
-    <div>
-      <form onSubmit = {createNew}>
-        <div>
+    <div style = {{textAlign: "left"}}>
+      <Form>
+        <Form.Field>
         Post:
         <input {...content}/>
-        </div>
-        <div>
+        </Form.Field>
+        <Form.Field>
         Image URL:
         <input {...img}/>
-        </div>
-        <button type = "submit">submit</button>
-      </form>
+        </Form.Field>
+        <AnimatedButton type = "submit"
+        icon = "arrow right"
+        onClick = {createNew}/>
+       <AnimatedButton type = "reset"
+       icon = "redo"
+       onClick = {resetFields}/>
+      </Form>
     </div>
     )
   }
