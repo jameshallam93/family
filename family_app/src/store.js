@@ -5,6 +5,8 @@ import { composeWithDevTools } from "redux-devtools-extension"
 
   const store = createStore(postReducer, 
     composeWithDevTools(
-        applyMiddleware(thunk)))
+        applyMiddleware(thunk)
+    )
+  )
 
   export default store

@@ -1,12 +1,5 @@
-import Axios from "axios"
-const baseUrl = "http://localhost:3001/posts"
+import postService from "../services/postService"
 
-// refactor into new services module
-const getAll = async () =>{
-    const response = await Axios.get(baseUrl)
-
-    return response.data
-}
 
 
 
@@ -14,9 +7,20 @@ const postReducer = (state = [], action) =>{
     switch (action.type){
       case "NEW_POST":
         return [...state, action.data]
+
       case "INIT_POSTS":
           console.log("action", action)
         return action.data
+
+      case "UPDATE_LIKES":
+        const newState = state.map(post =>
+          post.id === action.data.id ?
+          action.data
+          :
+          post
+        )
+        return newState
+        
       default:
         return state
     }
@@ -28,19 +32,32 @@ export const newPostAction = (post) =>{
       data: {
         content:post.content,
         img: post.img,
-        likes:post.likes
+        likes:post.likes,
+        id:post.id
       }
     })
 }
 
+export const updateLikesAction = (post) =>{
+  return ({
+    type: "UPDATE_LIKES",
+    data:{
+      content:post.content,
+      img:post.img,
+      likes:post.likes,
+      id:post.id
+    }
+  })
+}
+
 export const initPostsAction = () =>{
     return async dispatch =>{
-        const posts = await getAll()
+      const posts = await postService.getAll()
 
-        dispatch({
-            type:"INIT_POSTS",
-            data:posts
-        })
+      dispatch({
+          type:"INIT_POSTS",
+          data:posts
+      })
     }
 }
 

@@ -1,9 +1,13 @@
 import React from "react"
+import { Divider } from "semantic-ui-react"
+import LikeButton from "./stylised/LikeButton"
 
-
-const Post = ({post}) =>{
+const Post = ({post, updateLikes}) =>{
 
     const {content, img, likes} =  post 
+    const handleNewLike = async () =>{
+      updateLikes(post.id)
+    }
 
     return(
       <div>
@@ -16,12 +20,12 @@ const Post = ({post}) =>{
             width = {700}
             height = {500}
             />}
-          <div>
-            <strong>
-            Number of likes: {likes}
-            </strong>
-          </div>
-          ------------------------------------------------------------------------------------------------------------------------------------------------
+        <div>
+          <LikeButton likes = {likes}
+           onClick = {handleNewLike}
+           />
+        </div>
+          <Divider/>
       </div>
     )
   }

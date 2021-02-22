@@ -1,7 +1,8 @@
 import React from "react"
 import Links from "./Links"
 import useField from "../hooks/useField"
-
+import { Form } from "semantic-ui-react"
+import AnimatedButton from "./stylised/AnimatedButton"
 
 const Login = () =>{
 
@@ -11,6 +12,9 @@ const Login = () =>{
     const handleLogin = () =>{
       console.log(username.value, password.value)
     }
+    const loginStyle = {
+      textAlign:"left"
+    }
   
     return (
       <>
@@ -18,17 +22,21 @@ const Login = () =>{
         <Links/>
       </div>
       <div>
-        <form onSubmit = {handleLogin}>
-          <div>
-            Username:
+        <Form style = {loginStyle} onSubmit = {handleLogin}>
+          <Form.Field>
+            <strong><h3>Username:</h3></strong>
             <input {...username}></input>
-          </div>
-          <div>
-            Password:
+          </Form.Field>
+          <Form.Field>
+            <strong><h3>Password:</h3></strong>
             <input {...password}></input>
-          </div>
-          <button type = "submit">submit</button>
-        </form>
+          </Form.Field>
+          <AnimatedButton primary type = "submit"
+          icon = "right arrow"
+          onClick = {handleLogin}>
+            submit
+          </AnimatedButton>
+        </Form>
       </div>
       </>
     )
