@@ -6,7 +6,7 @@ const Post = ({post, updateLikes}) =>{
 
     const {content, img, likes} =  post 
     const handleNewLike = async () =>{
-      updateLikes(post.id)
+      updateLikes(post)
     }
 
     return(

@@ -13,8 +13,8 @@ const Posts = () =>{
     dispatch(initPostsAction())
   }, [dispatch])
 
-  const updateLikes = async (id) =>{
-    const updatedPost = await postService.updateLikes(id)
+  const updateLikes = async (post) =>{
+    const updatedPost = await postService.update(post)
     dispatch(updateLikesAction(updatedPost))
   }
 

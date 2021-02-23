@@ -1,6 +1,7 @@
 import axios from "axios"
 const baseUrl = "http://localhost:3001/api/posts"
 
+
 const get = async (id) =>{
     const response = await axios.get(`${baseUrl}/${id}`)
 
@@ -20,19 +21,24 @@ const createNew = async (post) =>{
 
     return response.data
 }
-//maybe move updating of likes to server side 
-//- return updated post to updateLikes function and then pass on from here
-//definitely implement above when database is linked
-const updateLikes = async (id) =>{
 
-    const postToUpdate = await axios.get(`${baseUrl}/${id}`)
-    const newLikes = postToUpdate.data[0].likes + 1
+const update = async (post) =>{
 
-    const updatedPost = {...postToUpdate.data[0],
-    likes:newLikes}
+    //will need to refactor this once other update methods are implemented (i.e.change content/img src)
+    const postWithIncrementedLikes = incrementLikes(post)
 
-    const response = await axios.put(`${baseUrl}/${id}`, updatedPost)
+    const response = await axios.put(`${baseUrl}/${post.id}`, postWithIncrementedLikes)
+
     return response.data
+}
+
+const incrementLikes = (object) =>{
+    
+    const newObject = {
+        ...object,
+        likes: object.likes + 1
+    }
+    return newObject
 }
 
 export default {
@@ -40,5 +46,5 @@ export default {
     get,
     getAll,
     createNew,
-    updateLikes
+    update
 }
