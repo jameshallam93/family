@@ -71,9 +71,7 @@ describe("on initialisation", ()=>{
         expect(updateSpy).toHaveBeenCalled()
     
     })
-    //this test will not run as the suite gets stuck on the last test - need to find a way to mock the api
-    // or decide whether it is possible to test the updateLikes function without refactoring it
-    //if I refactor, need to find a way to use dispatch() outside of components.
+
 
 
 })
