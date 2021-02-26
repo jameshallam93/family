@@ -1,8 +1,10 @@
 import React, { useEffect } from "react"
 import Post from "./Post"
 import { useSelector, useDispatch } from "react-redux"
-import { initPostsAction, updateLikesAction } from "../reducers/postReducer"
+import postActions from "../actions/postActions"
 import postService from "../services/postService"
+
+const { initPostsAction, updateLikesAction } = postActions
 
 const Posts = () =>{
 

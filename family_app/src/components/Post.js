@@ -10,18 +10,20 @@ const Post = ({post, updateLikes}) =>{
     }
 
     return(
-      <div>
+      <div className = "post">
         <div><strong>
           <h3>Content:</h3> {content}
           </strong>
         </div>
         <div>------------</div>
-          {<img src = {img}
+          {<img className = "postImage"
+            src = {img}
             width = {700}
             height = {500}
             />}
         <div>
-          <LikeButton likes = {likes}
+          <LikeButton 
+           likes = {likes}
            onClick = {handleNewLike}
            />
         </div>

@@ -3,7 +3,7 @@ import { Button, Icon, Label } from "semantic-ui-react"
 const LikeButton = ({likes, onClick}) =>{
 
     return (
-        <Button as = "div" labelPosition = "right" onClick = {onClick}>
+        <Button className = "likeButton" as = "div" labelPosition = "right" onClick = {onClick}>
             <Button color = "red">
                 <Icon name = "heart"/>
             </Button>
