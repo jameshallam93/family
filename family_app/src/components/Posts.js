@@ -16,16 +16,24 @@ const Posts = () =>{
   }, [dispatch])
 
   const updateLikes = async (post) =>{
+    try{
     const updatedPost = await postService.update(post)
     dispatch(updateLikesAction(updatedPost))
+    }catch(exception){
+      console.log(exception)
+    }
   }
 
-  const posts = useSelector(state => {return state})
+  const posts = useSelector(state =>  {
+    const posts = state.post
+    return posts
+  })
 
     return(
       <div>
         {posts.map(post =>
           <Post
+          className = "post"
           key = {post.id}
           post = {post}
           updateLikes = {updateLikes}/>)}

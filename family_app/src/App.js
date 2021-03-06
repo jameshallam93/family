@@ -1,6 +1,8 @@
 import React from "react"
+import { useSelector } from "react-redux"
 import Home from "./components/Home"
-import Login from "./components/Login"
+import Notification from "./components/Notification"
+import LoginPage from "./components/LoginPage.js"
 import {
    BrowserRouter as Router,
    Route, Switch} from "react-router-dom"
@@ -8,21 +10,24 @@ import { Container } from "semantic-ui-react"
 
 
 const App = () =>{
-  const main = {
-    backgroundColor:"#ca9ef0"
-  }
-  const container = {
-    backgroundColor:"#7c4f96",
-    textAlign:"center"
-  }
+
+
+  const notification = useSelector(state =>state.notification)
+
 
   return(
-    <div style = {main}>
-    <Container style = {container}>
+    <div style = {{backgroundColor:"#ca9ef0"}}>
+    <Container style = {{backgroundColor:"#7c4f96", textAlign:"center"}}>
+      
+      {notification?
+      <Notification {...notification} />
+      :
+      null}
+
       <Router>
         <Switch>
           <Route path = "/login">
-            <Login/>
+            <LoginPage/>
           </Route>
           <Route path = "/">
             <Home />

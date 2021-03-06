@@ -32,7 +32,7 @@ describe("update likes action creator ", ()=>{
 })
 
 describe("the post reducer ", ()=>{
-    test("should return an empty array on startup given no action type", ()=>{
+    test("should return an empty array on startup given no action type or data", ()=>{
         expect(postReducer(undefined, {})).toEqual([])
     })
     describe("in the case of a new post ", ()=>{

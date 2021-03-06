@@ -2,9 +2,9 @@ import useField from "../hooks/useField"
 import { Form } from "semantic-ui-react"
 import AnimatedButton from "./stylised/AnimatedButton"
 import { useDispatch } from "react-redux"
-import { newPostAction } from "../reducers/postReducer"
-import postService from "../services/postService"
-
+import postActions from "../actions/postActions"
+import helper from "./helpers/newPostHelper"
+const { newPostAction } = postActions
 
 const NewPost = () =>{
 
@@ -12,28 +12,19 @@ const NewPost = () =>{
     const content = useField("text")
     const img = useField("text")
 
-    //temporary id generation until I link with database
-    // - should be handled automatically at that stage
-    const generateId = () =>{
-      const id = Math.floor(Math.random() *19319)
-      return id
-    }
-
-    const generatePost = () =>{
-      return {
-        content: content.value,
-        img: img.value,
-        likes:0,
-        id: generateId()
-      }
-    }
-
     const createNew = async (event) =>{
+
       event.preventDefault()
 
-      const post = generatePost()
-      const newPost = await postService.createNew(post)
-      dispatch(newPostAction(newPost))
+      const post = helper.generatePost(content.value, img.value)
+      console.log(post)
+      const postErrors = helper.generatePostErrors(post)
+
+      if(postErrors){
+        helper.showNotification(dispatch, postErrors)
+        return
+      }
+      await helper.createNewPost(dispatch, post)
     }
 
     const resetFields = (event) =>{

@@ -1,7 +1,9 @@
-
+import postService from "../services/postService"
 
 const postActions = {
      newPostAction  (post) {
+
+       
         return ({
           type: "NEW_POST",
           data: {
@@ -13,6 +15,8 @@ const postActions = {
         })
     },
     updateLikesAction (post) {
+
+      
         return ({
           type: "UPDATE_LIKES",
           data:{

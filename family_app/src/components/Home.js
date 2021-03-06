@@ -1,4 +1,4 @@
-import Links from "./Links"
+import NavBar from "./NavBar"
 import Posts from "./Posts"
 import NewPost from "./NewPost"
 
@@ -8,13 +8,14 @@ const Home = () =>{
   
     return(
       <div>
-        <Links/>
-          <h2 style = {{backgroundColor:"black",
-          color:"white"}}>
-            Wall
-          </h2>
-          <Posts/>
+        <NavBar/>
+        <h2 className = "wallHeading"
+        style = {{backgroundColor:"black",
+        color:"white"}}>
+          Wall
+        </h2>
         <NewPost/>
+        <Posts/>
       </div>
     )
   }

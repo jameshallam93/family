@@ -2,12 +2,16 @@ import React from "react"
 import { Button, Icon } from "semantic-ui-react"
 
 
-const AnimatedButton = ({type, onClick, icon}) =>(
+const AnimatedButton = ({type, onClick, icon, label}) =>(
     
     <Button animated type = {type}
-    onClick = {onClick}>
+    onClick = {onClick}
+    className = {"submitButton"}>
         <Button.Content visible >
-            {type}
+            {type?
+            type
+            :
+            label}
         </Button.Content>
         <Button.Content hidden>
             <Icon name = {icon}/>

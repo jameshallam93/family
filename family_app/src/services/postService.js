@@ -14,7 +14,7 @@ const postService = {
         const config = {}
 
         const response = await axios.post(baseUrl, post, config)
-    
+
         return response.data
     },
     async update (post) {
@@ -24,7 +24,7 @@ const postService = {
     
         return response.data
     },
-    incrementLikes () {
+    incrementLikes (object) {
         const newObject = {
             ...object,
             likes: object.likes + 1
