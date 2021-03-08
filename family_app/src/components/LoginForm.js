@@ -30,8 +30,6 @@ const LoginForm = () =>{
       }catch(exception){
         console.log(exception)
       }
-
-
     }
 
   

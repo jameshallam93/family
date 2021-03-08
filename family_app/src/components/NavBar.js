@@ -2,7 +2,7 @@ import React from "react"
 import { BrowserRouter as Router,
     Link } from "react-router-dom"
 
-const Links = () =>{
+const NavBar = () =>{
     const padding = {
       padding:5
     }
@@ -14,4 +14,4 @@ const Links = () =>{
     )
   }
 
-export default Links
+export default NavBar

@@ -8,7 +8,9 @@ export const post = {
     likes: 7,
     id: 101010
 }
+
 export const mockFun = jest.fn()
+
 const postHelper = {
     
 
