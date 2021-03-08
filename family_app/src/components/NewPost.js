@@ -2,9 +2,8 @@ import useField from "../hooks/useField"
 import { Form } from "semantic-ui-react"
 import AnimatedButton from "./stylised/AnimatedButton"
 import { useDispatch } from "react-redux"
-import postActions from "../actions/postActions"
 import helper from "./helpers/newPostHelper"
-const { newPostAction } = postActions
+
 
 const NewPost = () =>{
 
@@ -17,7 +16,7 @@ const NewPost = () =>{
       event.preventDefault()
 
       const post = helper.generatePost(content.value, img.value)
-      console.log(post)
+
       const postErrors = helper.generatePostErrors(post)
 
       if(postErrors){
@@ -29,6 +28,7 @@ const NewPost = () =>{
 
     const resetFields = (event) =>{
       event.preventDefault()
+
       content.onReset()
       img.onReset()
     }
