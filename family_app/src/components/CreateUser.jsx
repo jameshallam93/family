@@ -1,19 +1,22 @@
 import React from "react"
 import { useDispatch } from "react-redux"
 import useField from "../hooks/useField"
-import { Form, FormField } from "semantic-ui-react"
-import AnimatedButton from "./stylised/AnimatedButton"
-import notificationActions from "../actions/notificationActions"
-import helper from "./helpers/createUserHelper"
+import {
+    Form,
+    FormField
+} from "semantic-ui-react"
 
-const {setNotification, clearNotification} = notificationActions
+import AnimatedButton from "./stylised/AnimatedButton"
+import generateCredentialErrors from "./helpers/generateCredentialErrors"
+import notificationActions from "../actions/notificationActions"
+import userActions from "../actions/userActions"
 
 const CreateUser = () =>{
+
     const dispatch = useDispatch()
     const username = useField("text")
     const password = useField("password")
 
-    
     const generateCredentials = () =>{
         return {
             username: username.value,
@@ -21,18 +24,17 @@ const CreateUser = () =>{
         }
     }
 
-
     const handleNewUser = async() =>{
         const credentials = generateCredentials()
         
-        const credentialsError = helper.generateCredentialErrors(credentials)
-        console.log(credentialsError)
+        const credentialsError = generateCredentialErrors(credentials)
+        console.error(credentialsError)
         
         if(credentialsError){
-            helper.showNotification(dispatch, credentialsError)
-        }else{
-        await helper.createNewUser(dispatch, credentials)
+            dispatch(notificationActions.showNotification(credentialsError))
+            return;
         }
+        dispatch(userActions.createNewUser(credentials))
     }
 
     const textAlign = {

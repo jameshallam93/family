@@ -1,18 +1,32 @@
 
 const notificationActions = {
 
-    setNotification (header, content) {
-
+    setNotification (field, message) {
         return (
             {
                 type: "SET_NOTIFICATION",
-                data:{
-                    header,
-                    content
+                payload:{
+                    field,
+                    message
                 }
             }
         )
     },
+    showNotification (notification) {
+        if (notification ===  null){
+            return null;
+        }
+        const field = notification.field
+        const message = notification.message
+
+        return async dispatch =>{            
+            dispatch(this.setNotification(field, message))
+            setTimeout(()=>{
+                dispatch(this.clearNotification())
+            }, 3000)
+        }
+    }
+    ,
 
     clearNotification () {
         return(
@@ -22,4 +36,5 @@ const notificationActions = {
         )
     }
 }
+
 export default notificationActions

@@ -1,13 +1,13 @@
-import React, { useState } from "react"
+import { useState } from "react"
 
-const useToggle = (visibleInitially = false) =>{
+const useToggle = (visibleInitially = false) => {
 
     const [visible, setVisible] = useState(visibleInitially)
 
-    return[
+    return [
         visible,
         {
-            set:setVisible,
+            set: setVisible,
             toggle: () => setVisible(!visible)
         }
     ]

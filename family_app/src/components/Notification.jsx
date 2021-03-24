@@ -1,12 +1,11 @@
 import React from "react"
 import { Message } from "semantic-ui-react"
 
-
-const Notification = ({content, header}) =>{
-    return(
+const Notification = ({ field, message }) => {
+    return (
         <Message>
-            <Message.Header>{header}</Message.Header>
-            <p>{content}</p>
+            <Message.Header>{field}</Message.Header>
+            <p>{message}</p>
         </Message>
     )
 }
