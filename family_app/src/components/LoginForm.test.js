@@ -1,45 +1,28 @@
-import "@testing-library/jest-dom/extend-expect"
 import LoginForm from "./LoginForm"
-import loginHelper from "./helpers/loginFormHelper"
-import loginService from "../services/loginService"
-import userActions from "../actions/userActions"
-import { configure } from "enzyme"
-import Adapter from "enzyme-adapter-react-16"
-configure({adapter: new Adapter()})
-import { shallow } from "enzyme"
+
+import "@testing-library/jest-dom/extend-expect"
+import { render, fireEvent } from "@testing-library/react"
+
 
 const currentUser = {
     username:"TomJones"
 }
-jest.mock("../services/loginService", ()=>({
-    ...jest.requireActual("../services/loginService"),
-    login: jest.fn(()=>currentUser)
+jest.mock("react-redux", ()=>({
+    ...jest.requireActual("react-redux"),
+    useDispatch: jest.fn()
 }))
 
 
-describe("the loginhelper/loginUser function, ", ()=>{
-    const mockedDispatch = jest.fn()
-    afterEach(()=>{
-        mockedDispatch.mockClear()
-        jest.resetModules()
+describe("the LoginForm component correctly renders the following elements:", ()=>{
+    let component;
+
+    beforeEach(()=>{
+        component = render(
+            <LoginForm/>
+        )
     })
-    test("calls on loginService/login once",async()=>{
-
-        await loginHelper.loginUser(mockedDispatch, currentUser)
-        expect(loginService.login).toHaveBeenCalledTimes(1)
-
-        })
-    test("calls on userActions/loginUser once", async ()=>{
-
-        const userActionSpy = jest.spyOn(userActions, "loginUser")
-
-        await loginHelper.loginUser(mockedDispatch, currentUser)
-        expect(userActionSpy).toHaveBeenCalledTimes(1)
-    })
-    test("calls on dispatch once", async ()=>{
-
-        await loginHelper.loginUser(mockedDispatch, currentUser)
-        expect(mockedDispatch).toHaveBeenCalledTimes(1)
+    test("test", ()=>{
+        component.debug()
     })
 })
 

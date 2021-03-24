@@ -2,10 +2,7 @@ import NavBar from "./NavBar"
 import Posts from "./Posts"
 import NewPost from "./NewPost"
 
-
-
 const Home = () =>{
-  
     return(
       <div>
         <NavBar/>

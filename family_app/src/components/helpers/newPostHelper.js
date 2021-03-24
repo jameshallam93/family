@@ -1,28 +1,5 @@
-import postService from "../../services/postService"
-import postActions from "../../actions/postActions"
-import notificationActions from "../../actions/notificationActions"
 
-const newPostHelper = {
-
-    async createNewPost (dispatch, post) {
-
-        const newPost = await postService.createNew(post)
-
-        dispatch(postActions.newPostAction(newPost))
-
-        this.showNotification(dispatch, {field:"Post", message: "New post created successfully"})
-    },
-
-    showNotification (dispatch, notification) {
-
-        dispatch(notificationActions.setNotification(notification.field, notification.message))
-
-        setTimeout(()=>{
-            dispatch(notificationActions.clearNotification())
-        }, 5000)
-    },
-    generatePost (content, img) {
-
+    export const generatePost = (content, img) =>{
         if (! (content && img)){
             return null
         }
@@ -31,9 +8,8 @@ const newPostHelper = {
             img: img,
             likes:0
         }
-    },
-    generatePostErrors (post) {
-
+    }
+    export const generatePostErrors =  (post) =>{
        if (post === null){
            return {
                field:"Post",
@@ -41,6 +17,3 @@ const newPostHelper = {
            }
        }
     }
-}
-
-export default newPostHelper

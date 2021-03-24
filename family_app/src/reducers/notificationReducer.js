@@ -1,8 +1,8 @@
 
-const notificationReducer = (state = null, action) =>{
-    switch (action.type){
+const notificationReducer = (state = null, action) => {
+    switch (action.type) {
         case "SET_NOTIFICATION":
-            return action.data
+            return action.payload
         case "CLEAR_NOTIFICATION":
             return null
         default:
