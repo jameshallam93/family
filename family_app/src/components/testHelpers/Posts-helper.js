@@ -2,7 +2,7 @@
 
 
 const postsHelper = {
-    initialPosts : {post:[
+    initialPosts : {post:{posts:[
         {
             content:"first test post",
             img:"https://picture.com",
@@ -21,6 +21,6 @@ const postsHelper = {
             likes:8,
             id:33,
         }
-    ]}
+    ]}}
 }
 export default postsHelper

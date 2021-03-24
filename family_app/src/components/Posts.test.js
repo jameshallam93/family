@@ -44,6 +44,8 @@ describe("on initialisation", ()=>{
     })
 
     test("content from first post is returned", ()=>{
+        component.debug()
+        
 
         const content = component.getByText("first test post")
 
@@ -75,24 +77,24 @@ describe("on initialisation", ()=>{
     describe("mapped Post components are passed the correct props", ()=>{
 
         let componentWrapper;
-        let randomIndex;
+        let randomIndex; 
         let postNode;
 
         beforeEach(()=>{
             componentWrapper = shallow(
                 <Posts />
             )
-            randomIndex = Math.floor(Math.random() * initialPosts.post.length)
+            randomIndex = Math.floor(Math.random() * initialPosts.post.posts.length)
             postNode = componentWrapper.find(".post").at(randomIndex)
         })
 
         test("post prop is correct", ()=>{
             
-            expect(postNode.prop("post")).toEqual(initialPosts.post[randomIndex])
+            expect(postNode.prop("post")).toEqual(initialPosts.post.posts[randomIndex])
         })
         test("key prop is correct", ()=>{
 
-            expect(Number(postNode.key())).toEqual(initialPosts.post[randomIndex].id)
+            expect(Number(postNode.key())).toEqual(initialPosts.post.posts[randomIndex].id)
         })
 
 
