@@ -1,23 +1,22 @@
 import Notification from "./Notification"
 import "@testing-library/jest-dom/extend-expect"
-import { render, fireEvent } from "@testing-library/react"
-import Enzyme from "enzyme"
-import Adapter from "enzyme-adapter-react-16"
-Enzyme.configure({ adapter: new Adapter()})
+import { render } from "@testing-library/react"
+
 
 const testProps = {
-    header: "This is a test header",
-    content:"This is test content"
+    field: "This is a test header",
+    message:"This is test content"
 }
 describe("when a notification is rendered", ()=>{
     let component;
-    let componentWrapper;
+
     beforeEach(()=>{
         component = render(
             <Notification {...testProps} />
         )
     })
     test("the header is rendered correctly", async()=>{
+        component.debug()
         const header = component.getByText("This is a test header")
         expect(header).toBeDefined()
         

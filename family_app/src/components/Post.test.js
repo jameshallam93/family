@@ -10,8 +10,8 @@ import  postHelper from "./testHelpers/Post-helper"
 import { post, mockFun } from "./testHelpers/Post-helper"
 //for dev
 import { prettyDOM } from "@testing-library/dom"
-
-describe("The post component ", ()=>{
+//as
+describe.only("The post component ", ()=>{
     let postComponent;
     beforeEach(()=>{
         postComponent = render(
