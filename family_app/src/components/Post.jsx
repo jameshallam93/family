@@ -1,6 +1,6 @@
 import React from "react"
 import { Divider } from "semantic-ui-react"
-import LikeButton from "./stylised/LikeButton"
+import LikeButton from "./semanticUI/LikeButton"
 
 const Post = ({ post, updateLikes }) => {
 

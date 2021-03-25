@@ -1,6 +1,5 @@
-import { create } from "json-server"
 import postActions from "../../actions/postActions"
-const { newPostAction, updateLikesAction, initPostsAction } = postActions
+const { newPostAction, updateLikesAction } = postActions
 import postReducer from "../postReducer"
 
 const newPost = {

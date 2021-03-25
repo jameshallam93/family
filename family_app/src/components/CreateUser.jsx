@@ -6,7 +6,8 @@ import {
     FormField
 } from "semantic-ui-react"
 
-import AnimatedButton from "./stylised/AnimatedButton"
+import LeftAlignedDiv from "./styled/LeftAlignDiv"
+import AnimatedButton from "./semanticUI/AnimatedButton"
 import generateCredentialErrors from "./helpers/generateCredentialErrors"
 import notificationActions from "../actions/notificationActions"
 import userActions from "../actions/userActions"
@@ -37,12 +38,8 @@ const CreateUser = () =>{
         dispatch(userActions.createNewUser(credentials))
     }
 
-    const textAlign = {
-        textAlign:"left"
-    }
-
     return (
-        <div style = {textAlign}>
+        <LeftAlignedDiv>
             <h2>Create new user</h2>
             <Form onSubmit = {handleNewUser}>
                 <FormField> 
@@ -60,7 +57,7 @@ const CreateUser = () =>{
                     submit
                 </AnimatedButton>
             </Form>
-        </div>
+        </LeftAlignedDiv>
     )
 }
 
