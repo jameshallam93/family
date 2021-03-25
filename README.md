@@ -1,9 +1,19 @@
 
-Family social media
+# Family social media
+
+[![Updated Badge](https://badges.pufler.dev/updated/jameshallam93/family)](https://badges.pufler.dev)
 
 The rough impetus for starting this project was to create a basic social media page for my extended family to keep in touch with each other during the pandemic.
 
 backend: https://github.com/jameshallam93/familyServer/tree/master
+
+## Usage:
+
+<code> npm install </code>
+
+<code> npm start </code>
+
+Visit http://localhost:3000 to access app.
 
 ## Built using:
 The main tools I used to make this app are:
