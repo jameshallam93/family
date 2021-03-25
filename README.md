@@ -14,8 +14,8 @@ The main tools I used to make this app are:
 
 It also gave me an opportunity to practice using custom hooks, stylised components and password hashing using bcrypt.
 
-## Future features:
+## Roadmap
 
-- Session validation using JSON web tokens
+- Add session validation using JSON web tokens
 - Conditional ability to post new content depending on if logged in or not; attach username to all posts
 - Ability to set posted content to delete after a set period of time (i.e. a week) - should be doable through useEffect and delete markers.
