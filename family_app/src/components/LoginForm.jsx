@@ -3,7 +3,7 @@ import { useDispatch } from "react-redux"
 import { Form } from "semantic-ui-react"
 
 import useField from "../hooks/useField"
-import AnimatedButton from "./stylised/AnimatedButton"
+import AnimatedButton from "./semanticUI/AnimatedButton"
 import userActions from "../actions/userActions"
 
 const LoginForm = () => {

@@ -1,8 +1,9 @@
 import { Form } from "semantic-ui-react"
 import { useDispatch } from "react-redux"
 
+import LeftAlignedDiv from "./styled/LeftAlignDiv"
 import useField from "../hooks/useField"
-import AnimatedButton from "./stylised/AnimatedButton"
+import AnimatedButton from "./semanticUI/AnimatedButton"
 import notificationActions from "../actions/notificationActions"
 import postActions from "../actions/postActions"
 import { generatePost, generatePostErrors } from "./helpers/newPostHelper"
@@ -38,7 +39,7 @@ const NewPost = () => {
     }
 
     return (
-        <div style={{ textAlign: "left" }}>
+        <LeftAlignedDiv>
             <Form>
                 <Form.Field>
                     Post:
@@ -57,7 +58,7 @@ const NewPost = () => {
                     onClick={resetFields}
                 />
             </Form>
-        </div>
+        </LeftAlignedDiv>
     )
 }
 

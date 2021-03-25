@@ -5,24 +5,21 @@ import {
     Route,
     Switch
 } from "react-router-dom"
-import { Container } from "semantic-ui-react"
-import styled from "styled-components"
 
 import Home from "./components/Home"
 import LoginPage from "./components/LoginPage"
 import Notification from "./components/Notification"
-
+import StyledDiv from "./components/styled/StyledAppDiv"
+import StyledContainer from "./components/styled/StyledContainer"
 
 const App = () => {
 
     const notification = useSelector(state => state.notification)
 
     return (
-        <div style = {{backgroundColor:"#ca9ef0"}}>
-    <Container style = {{backgroundColor:"#7c4f96", textAlign:"center"}}>
-
+        <StyledDiv>
+            <StyledContainer>
                 {notification && <Notification {...notification} />}
-
                 <Router>
                     <Switch>
                         <Route path="/login">
@@ -33,8 +30,8 @@ const App = () => {
                         </Route>
                     </Switch>
                 </Router>
-            </Container>
-        </div>
+            </StyledContainer>
+        </StyledDiv>
     )
 }
 

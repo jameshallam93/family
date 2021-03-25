@@ -1,7 +1,8 @@
 import React from "react"
 import { useSelector, useDispatch } from "react-redux"
+
 import useToggle from "../hooks/useToggle"
-import AnimatedButton from "./stylised/AnimatedButton"
+import AnimatedButton from "./semanticUI/AnimatedButton"
 import NavBar from "./NavBar"
 import CreateUser from "./CreateUser"
 import LoginForm from "./LoginForm"
@@ -42,7 +43,7 @@ const LoginPage = () => {
                                 icon="right arrow"
                                 onClick={() => visibleActions.toggle()}>
                                 New User
-                        </AnimatedButton>
+                            </AnimatedButton>
                         </div>
                         <div style={userFormStyle}
                             className="newUserForm">
