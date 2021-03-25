@@ -31,7 +31,6 @@ const Posts = () => {
         return posts.posts
     })
 
-
     return (
         <div>
             {posts && posts.map(post =>

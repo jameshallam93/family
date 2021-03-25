@@ -1,6 +1,7 @@
 {
   "name": "family_app",
   "version": "0.1.0",
+  "description":"A basic social media page created for my familys use",
   "private": true,
   "dependencies": {
     "@testing-library/user-event": "^12.7.1",
